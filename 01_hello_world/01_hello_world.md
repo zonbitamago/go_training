@@ -3,7 +3,7 @@
 ## Goをインストールする。
 [公式ページ](https://golang.org/)からインストーラをダウンロードし、インストールする。  
 ※その他のインストール方法は以下を参照すること。
-[Getting Started(公式)](https://golang.org/doc/install)
+[Getting Started(公式)](https://golang.org/doc/install)
 
 ## Goのワークスペースでディレクトリを作成する。
 1.ワークスペースに以下のディレクトリを作成する。  
@@ -13,10 +13,10 @@
 - Macの場合・・・```~/go```
 
 ※ワークスペースを変更したい場合は以下を参照すること。  
-[Getting Started(公式)](https://golang.org/doc/install)
+[Getting Started(公式)](https://golang.org/doc/install)
 
 ## main.goを作成する。
-上記ディレクトリに以下を配置する。
+上記ディレクトリに以下を配置する。
 
 main.go
 ```go
