@@ -1,6 +1,6 @@
 # exported_names
 
-https://go-tour-jp.appspot.com/basics/3
+[https://go-tour-jp.appspot.com/basics/3](https://go-tour-jp.appspot.com/basics/3)
 
 func名や変数名など、最初が大文字で始まる場合は外部から利用可能なものとなる。  
 

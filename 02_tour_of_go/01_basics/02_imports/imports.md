@@ -1,5 +1,5 @@
 # imports
-https://go-tour-jp.appspot.com/basics/2
+[https://go-tour-jp.appspot.com/basics/2](https://go-tour-jp.appspot.com/basics/2)
 
 別パッケージのインポートは以下のようにimportを宣言して行う。
 

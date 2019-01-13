@@ -1,6 +1,6 @@
 # functions_continued
 
-https://go-tour-jp.appspot.com/basics/5
+[https://go-tour-jp.appspot.com/basics/5](https://go-tour-jp.appspot.com/basics/5)
 
 関数の2つ以上の引数が同じ型の場合は、型定義をまとめて後ろに記載することができる。
 

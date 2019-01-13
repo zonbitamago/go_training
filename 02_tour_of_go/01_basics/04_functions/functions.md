@@ -1,6 +1,6 @@
 # functions
 
-https://go-tour-jp.appspot.com/basics/5
+[https://go-tour-jp.appspot.com/basics/4](https://go-tour-jp.appspot.com/basics/4)
 
 関数の型は以下のように定義する。  
 ***func 関数名(引数 型, 引数 型) 戻り値型 { 処理 }***

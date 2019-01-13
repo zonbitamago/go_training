@@ -1,5 +1,7 @@
 # multiple_results
 
+[https://go-tour-jp.appspot.com/basics/6](https://go-tour-jp.appspot.com/basics/6)
+
 Go言語では関数の戻り値を複数定義することができる。
 
 ```go
