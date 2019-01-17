@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/flowcontrol/13](https://go-tour-jp.appspot.com/flowcontrol/13)
 
-deferステートメントへ複数の関数を渡した場合は、呼び出し元の関数がreturnするときにLIFO(Last-In-First-Out)の順番で実行される。
+deferステートメントへ複数の関数を渡した場合は、呼び出し元の関数がreturnするときにLIFO(Last-In-First-Out)の順番で実行される。
 
 ```go
 func main() {
