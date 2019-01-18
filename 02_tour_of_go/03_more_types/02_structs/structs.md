@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/moretypes/2](https://go-tour-jp.appspot.com/moretypes/2)
 
-`struct`(構造体)はフィールドの集まりです。
+`struct`(構造体)はフィールドの集まりです。
 
 ```go
 type Vertex struct {
