@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/moretypes/5](https://go-tour-jp.appspot.com/moretypes/5)
 
-structリテラルはフィールドの値を列挙し初期値の割当を示す。
+structリテラルはフィールドの値を列挙し初期値の割当を示す。
 
 `Name:`構文を利用してフィールドを一部のみ初期値割当することができる。
 
