@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/moretypes/6](https://go-tour-jp.appspot.com/moretypes/6)
 
-`[n]T`型は`n`個の変数の配列(array)を表す。
+`[n]T`型は`n`個の変数の配列(array)を表す。
 
 以下は、intの10個の配列を宣言している。
 
