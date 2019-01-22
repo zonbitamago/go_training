@@ -1,6 +1,6 @@
 # creating_slice_with_make
 
-[https://go-tour-jp.appspot.com/moretypes/13](https://go-tour-jp.appspot.com/moretypes/13)
+[https://go-tour-jp.appspot.com/moretypes/13](https://go-tour-jp.appspot.com/moretypes/13)
 
 スライスは`make`関数を使って作成することができる。`make`関数は動的サイズの配列を作成できる。
 
