@@ -21,3 +21,9 @@ func main() {
 	pic.Show(Pic)
 }
 ```
+
+※importがうまくいかないときは以下のコマンドを実行する必要があるかもしれない。
+
+```sh
+go get golang.org/x/tour/pic
+```
