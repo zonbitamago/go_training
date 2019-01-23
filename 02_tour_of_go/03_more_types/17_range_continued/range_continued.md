@@ -10,7 +10,7 @@ for _, value := range pow {
 }
 ```
 
-インデックスのみが必要な場合は"`, value`"を省略する。
+インデックスのみが必要な場合は"`, value`"を省略する。
 
 ```go
 for i := range pow {
