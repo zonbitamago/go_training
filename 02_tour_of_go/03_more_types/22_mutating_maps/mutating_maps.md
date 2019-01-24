@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/moretypes/22](https://go-tour-jp.appspot.com/moretypes/22)
 
-マップの要素の追加、更新
+マップの要素の追加、更新
 
 ```go
 m[key] = elem
@@ -28,4 +28,4 @@ elem ,ok = m[key]
 
 `m`に値があれば`ok`は`true`となり、存在しなければ`ok`は`false`となる。
 
-mapに`key`が存在しない場合は、`elem`はmaptの要素の型のゼロ値(初期値)となる。
+mapに`key`が存在しない場合は、`elem`はmaptの要素の型のゼロ値(初期値)となる。
