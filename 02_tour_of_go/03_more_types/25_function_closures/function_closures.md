@@ -8,7 +8,7 @@ Go言語の関数なクロージャ(closure)である。
 
 ```go
 // adder()が呼び出された時点しか「sum:=0」は実行されない。
-// returnされている関数はsumの値は加算されていく。
+// returnされている関数はsumの値は加算されていく。
 func adder() func(int) int {
 	sum := 0
 	return func(x int) int {
