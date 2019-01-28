@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/methods/4](https://go-tour-jp.appspot.com/methods/4)
 
-ポインタレシーバでメソッドを宣言することが可能である。
+ポインタレシーバでメソッドを宣言することが可能である。
 
 以下の例では`*Vertex`に`Scale`メソッドが定義されている。
 
