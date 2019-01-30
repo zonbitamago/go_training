@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/methods/9](https://go-tour-jp.appspot.com/methods/9)
 
-interface(インターフェース)型は、メソッドのシグニチャの集まりで定義する。
+interface(インターフェース)型は、メソッドのシグニチャの集まりで定義する。
 
 そのメソッドの集まりを実装した値を、interface型の変数へ持たせることができる。
 
