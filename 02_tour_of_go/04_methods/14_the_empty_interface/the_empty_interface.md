@@ -2,7 +2,7 @@
 
 [https://go-tour-jp.appspot.com/methods/14](https://go-tour-jp.appspot.com/methods/14)
 
-何もメソッドを指定していないインターフェースを、空のインターフェースと言う。
+何もメソッドを指定していないインターフェースを、空のインターフェースと言う。
 
 ```go
 interface{}
