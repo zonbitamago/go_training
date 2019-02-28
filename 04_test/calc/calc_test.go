@@ -49,3 +49,23 @@ func TestSubtract(t *testing.T) {
 	})
 
 }
+func TestMultiple(t *testing.T) {
+	test := []struct {
+		name string
+		a    int
+		b    int
+		want int
+	}{
+		{"plus_pluse", 2, 3, 6},
+		{"plus_minus", 3, -4, -12},
+		{"minus_minus", -4, -5, 20},
+	}
+
+	for _, tt := range test {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Multiple(tt.a, tt.b); got != tt.want {
+				testutils.ErrorfHandler(t, tt.want, got)
+			}
+		})
+	}
+}

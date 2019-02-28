@@ -9,3 +9,8 @@ func Sum(a int, b int) int {
 func Subtruct(a int, b int) int {
 	return a - b
 }
+
+// Multiple 積算処理
+func Multiple(a int, b int) int {
+	return a * b
+}

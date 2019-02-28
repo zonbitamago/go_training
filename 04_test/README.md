@@ -216,7 +216,7 @@ ok      go_training/04_test/calc        0.017s
 
 BeforeEach/AfterEach用の関数は存在しないので、各テスト内で共通処理を行う必要がある。
 
-## その他
+## エラー出力
 
 エラー出力に関しては、以下のように関数化しておくと便利。
 
@@ -231,5 +231,39 @@ import "testing"
 func ErrorfHandler(tb testing.TB, want interface{}, got interface{}) {
 	tb.Helper()
 	tb.Errorf("want = %d, got = %d", want, got)
+}
+```
+
+## Table Driven Test (テーブル駆動テスト)
+
+Goではテーブルを使ってテストを書くことが推奨される。
+サブテストもテーブルに含めて実施するとテストの見通しが良くなる。
+
+※ここでいう「テーブル」とは、構造体のことを指す(構造体がテーブルのように見えるため)。
+
+テーブルを使ってテストを記述すると、後にバグが発生するパターンのテストケースを追加するだけで済む。
+
+`calc/calc_test.go`
+
+```go
+func TestMultiple(t *testing.T) {
+	test := []struct {
+		name string
+		a    int
+		b    int
+		want int
+	}{
+		{"plus_pluse", 2, 3, 6},
+		{"plus_minus", 3, -4, -12},
+		{"minus_minus", -4, -5, 20},
+	}
+
+	for _, tt := range test {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Multiple(tt.a, tt.b); got != tt.want {
+				testutils.ErrorfHandler(t, tt.want, got)
+			}
+		})
+	}
 }
 ```
