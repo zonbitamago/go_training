@@ -267,3 +267,5 @@ func TestMultiple(t *testing.T) {
 	}
 }
 ```
+
+## モック

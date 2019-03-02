@@ -54,9 +54,13 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">go_training/04_test/calc/calc.go (100.0%)</option>
+				<option value="file0">go_training/04_test/book/book.go (0.0%)</option>
 				
-				<option value="file1">go_training/04_test/hoge/example.go (100.0%)</option>
+				<option value="file1">go_training/04_test/book/bookinfo.go (100.0%)</option>
+				
+				<option value="file2">go_training/04_test/calc/calc.go (100.0%)</option>
+				
+				<option value="file3">go_training/04_test/hoge/example.go (100.0%)</option>
 				
 				</select>
 			</div>
@@ -70,7 +74,35 @@
 		</div>
 		<div id="content">
 		
-		<pre class="file" id="file0" style="display: none">package calc
+		<pre class="file" id="file0" style="display: none">package book
+
+// Book 本
+type Book interface {
+        ShowISBN() string
+}
+
+// Novel 小説
+type Novel struct {
+        ISBN string
+}
+
+// ShowISBN ISBN情報取得
+func (novel *Novel) ShowISBN() string <span class="cov0" title="0">{
+        return novel.ISBN
+}</span>
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package book
+
+import "fmt"
+
+// Bookinfo 書籍情報取得
+func Bookinfo(book Book) string <span class="cov8" title="1">{
+        return fmt.Sprintf("ISBN is %v", book.ShowISBN())
+}</span>
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package calc
 
 // Sum 加算処理
 func Sum(a int, b int) int <span class="cov8" title="1">{
@@ -88,7 +120,7 @@ func Multiple(a int, b int) int <span class="cov8" title="1">{
 }</span>
 </pre>
 		
-		<pre class="file" id="file1" style="display: none">package hoge
+		<pre class="file" id="file3" style="display: none">package hoge
 
 import "errors"
 
