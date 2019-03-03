@@ -269,3 +269,101 @@ func TestMultiple(t *testing.T) {
 ```
 
 ## モック
+
+Go言語でのモックは[gomock](https://github.com/golang/mock)を利用する。
+
+gomockではインターフェイスに対してテスト用モック処理を注入する形となる。
+
+以下に、gomockの使い方を記載する。
+
+テスト対象：`book/bookinfo.go`
+
+```go
+package book
+
+import "fmt"
+
+// Bookinfo 書籍情報取得
+func Bookinfo(book Book) string {
+    //book.ShowISBNをモック化したい。
+	return fmt.Sprintf("ISBN is %v", book.ShowISBN())
+}
+```
+
+モック化対象：`book/book.go`
+
+```go
+package book
+
+// Book 本
+type Book interface {
+	ShowISBN() string
+}
+
+// Novel 小説
+type Novel struct {
+	ISBN string
+}
+
+// ShowISBN ISBN情報取得
+func (novel *Novel) ShowISBN() string {
+	return novel.ISBN
+}
+```
+
+### モックファイルの作成
+
+まずは[gomock](https://github.com/golang/mock)に記載されている通り、以下のインストールを行う。
+
+```sh
+go get github.com/golang/mock/gomock
+go install github.com/golang/mock/mockgen
+```
+
+次に、以下のコマンドでモックファイルの作成を行う。
+
+```sh
+mockgen -source=book/book.go --destination book/mock_book/mock_book.go
+```
+
+### テストの作成
+
+テスト：`book/bookinfo_test.go`
+
+```go
+func TestBookinfo(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+    // モックの変数化
+    book := mock_book.NewMockBook(ctrl)
+    // モック処理の戻り値を設定。
+	book.EXPECT().ShowISBN().Return("mockedISBN")
+
+	test := []struct {
+		name string
+		a    Book
+		want string
+	}{
+		{"mock_sample", book, "ISBN is mockedISBN"},
+	}
+
+	for _, tt := range test {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Bookinfo(tt.a); got != tt.want {
+				testutils.ErrorfHandler(t, tt.want, got)
+			}
+		})
+	}
+}
+```
+
+テスト結果
+
+```sh
+=== RUN   TestBookinfo
+=== RUN   TestBookinfo/mock_sample
+--- PASS: TestBookinfo (0.00s)
+    --- PASS: TestBookinfo/mock_sample (0.00s)
+PASS
+```
