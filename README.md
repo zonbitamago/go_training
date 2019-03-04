@@ -12,6 +12,7 @@ go言語入門用リポジトリ。各ディレクトリの内容を行ってい
 ├── 02_tour_of_go　←Go言語文法理解
 ├── 03_webapi ←webapi作成
 ├─- 04_test ←テスト作成
+├─- 05_database ←データベース関連処理
 ├── LICENSE
 └── README.md
 ```
