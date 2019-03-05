@@ -1,8 +1,14 @@
 # database
 
-サンプルとして、mysqlをDockerで利用する形とする。
+参考
 
-参考：[https://qiita.com/K_ichi/items/e8826c300e797b90e40f](https://qiita.com/K_ichi/items/e8826c300e797b90e40f)
+- [https://qiita.com/K_ichi/items/e8826c300e797b90e40f](https://qiita.com/K_ichi/items/e8826c300e797b90e40f)
+- [https://qiita.com/tenntenn/items/dddb13c15643454a7c3b](https://qiita.com/tenntenn/items/dddb13c15643454a7c3b)
+- [https://www.write-ahead-log.net/entry/2017/03/31/140335](https://www.write-ahead-log.net/entry/2017/03/31/140335)
+
+## MySQL
+
+サンプルとして、mysqlをDockerで利用する形とする。
 
 (起動コマンド)
 
@@ -18,11 +24,6 @@ docker-compose down
 
 ## 標準パッケージ
 
-参考
-
-- [https://qiita.com/tenntenn/items/dddb13c15643454a7c3b](https://qiita.com/tenntenn/items/dddb13c15643454a7c3b)
-- [https://www.write-ahead-log.net/entry/2017/03/31/140335](https://www.write-ahead-log.net/entry/2017/03/31/140335)
-
 ### MySQLドライバインストール
 
 ```sh
@@ -31,7 +32,7 @@ go get -u github.com/go-sql-driver/mysql
 
 ### コネクション確立
 
-`standard/database.go`
+`standard/Select.go`
 
 ```go
 // 第2引数の形式は "user:password@tcp(host:port)/dbname"
@@ -42,9 +43,9 @@ if err != nil {
 defer db.Close()
 ```
 
-### SQL実行&1行ずつ読み込み
+### Select文実行&1行ずつ読み込み
 
-`standard/database.go`
+`standard/Select.go`
 
 ```go
 rows, err := db.Query(`
@@ -72,3 +73,5 @@ if err := rows.Err(); err != nil {
     panic(err.Error())
 }
 ```
+
+### Insert文実行
