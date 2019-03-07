@@ -127,3 +127,5 @@ if err != nil {
     panic(err.Error())
 }
 ```
+
+### Prepared Statement
