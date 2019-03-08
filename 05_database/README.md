@@ -129,3 +129,34 @@ if err != nil {
 ```
 
 ### Prepared Statement
+
+前述のSQL実行(`db.Query`や`tx.Exec`)でもパラメータを引数に渡すことで、パラメータを自由に設定したSQLを実行することが可能となっている。
+
+ただし、他の言語と同様にPrepared Statement用の関数も用意されている。
+
+以下に、`db.Query`と`db.Prepare`の違いを比較する。
+
+[func (*DB) Query](https://godoc.org/database/sql#DB.Query)
+
+```txt
+func (db *DB) Query(query string, args ...interface{}) (*Rows, error)
+
+Query executes a query that returns rows, typically a SELECT. The args are for any placeholder parameters in the query.
+
+Queryは行を返すクエリ、通常はSELECTを実行します。引数は、クエリ内のプレースホルダパラメータ用です。
+```
+
+[func (*DB) Prepare](https://godoc.org/database/sql#DB.Prepare)
+
+```txt
+func (db *DB) Prepare(query string) (*Stmt, error)
+
+Prepare creates a prepared statement for later queries or executions. Multiple queries or executions may be run concurrently from the returned statement. The caller must call the statement's Close method when the statement is no longer needed.
+
+
+Prepareは問い合わせや実行のためのPrepared Statementを作成します。返却された値を用いて複数のクエリまたは実行を同時に実行できます。ステートメントが不要になった場合、呼び出し側はステートメントのCloseメソッドを呼び出す必要があります。
+```
+
+どちらのもパラメータを渡すことで、パラメータを自由に設定したSQLを実行することが出来る。`db.Query`は都度にSQL文を組み立てと呼び出しを実行する。`db.Prepare`はクエリを繰り返し実行する際にDBサーバとの通信回数の点で`db.Query`よりも優れている。
+
+SQLインジェクションの観点ではどちらもbind変数が利用されることになるので差異は見られない。バッチ処理などでSQLを繰り返し行う場合は`db.Prepare`を用いるほうが望ましい。
