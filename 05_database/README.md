@@ -164,3 +164,27 @@ SQLインジェクションの観点ではどちらもbind変数が利用され�
 ## gorm(ORM)
 
 [http://gorm.io/](http://gorm.io/)
+
+### MySQLドライバインストール(前述分と同じ)
+
+```sh
+go get -u github.com/go-sql-driver/mysql
+```
+
+### gormインストール
+
+```sh
+go get -u github.com/jinzhu/gorm
+```
+
+### コネクション確立(gorm)
+
+`gormsample/Select.go`
+
+```go
+db, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/app")
+if err != nil {
+    panic(err.Error())
+}
+defer db.Close()
+```
