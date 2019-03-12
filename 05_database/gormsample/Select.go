@@ -1,6 +1,7 @@
 package gormsample
 
 import (
+	"fmt"
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -11,8 +12,8 @@ import (
 type Users struct {
 	ID        int
 	Name      string
-	CreatedAt *time.Time
-	UpdatedAt *time.Time
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
 
 // Select select文発行
@@ -21,5 +22,10 @@ func Select() {
 	if err != nil {
 		panic(err.Error())
 	}
+
+	var users Users
+	db.First(&users)
+	fmt.Printf("db.First:%v\n", users)
+
 	defer db.Close()
 }
