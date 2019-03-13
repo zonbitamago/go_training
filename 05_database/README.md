@@ -189,3 +189,12 @@ if err != nil {
 }
 defer db.Close()
 ```
+
+### 1件取得
+
+`gormsample/Select.go`
+
+```go
+var users Users
+db.First(&users)
+```
