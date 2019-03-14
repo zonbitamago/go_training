@@ -2,7 +2,6 @@ package gormsample
 
 import (
 	"fmt"
-	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
@@ -10,10 +9,8 @@ import (
 
 // Users usersテーブルDTO
 type Users struct {
-	ID        int
-	Name      string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID   int
+	Name string
 }
 
 // Select select文発行
@@ -24,8 +21,14 @@ func Select() {
 	}
 
 	var users Users
+	// 1件取得
 	db.First(&users)
 	fmt.Printf("db.First:%v\n", users)
+
+	// 複数件取得
+	var allUsers []Users
+	db.Find(&allUsers)
+	fmt.Printf("db.Find:%v\n", allUsers)
 
 	defer db.Close()
 }

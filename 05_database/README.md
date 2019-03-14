@@ -198,3 +198,12 @@ defer db.Close()
 var users Users
 db.First(&users)
 ```
+
+### 複数件取得
+
+`gormsample/Select.go`
+
+```go
+var allUsers []Users
+db.Find(&allUsers)
+```
