@@ -30,5 +30,10 @@ func Select() {
 	db.Find(&allUsers)
 	fmt.Printf("db.Find:%v\n", allUsers)
 
+	// Where条件指定(単純バインド)
+	db.Where("name <> ?", "dummy").Find(&allUsers)
+	// 以下も同じ結果となる。
+	// db.Find(&allUsers, "name <> ?", "dummy")
+	fmt.Printf("db.Where(Plain SQL):%v\n", allUsers)
 	defer db.Close()
 }

@@ -6,7 +6,7 @@
 - [https://qiita.com/tenntenn/items/dddb13c15643454a7c3b](https://qiita.com/tenntenn/items/dddb13c15643454a7c3b)
 - [https://www.write-ahead-log.net/entry/2017/03/31/140335](https://www.write-ahead-log.net/entry/2017/03/31/140335)
 - [http://precure-3dprinter.hatenablog.jp/entry/2018/11/22/Golang%E3%81%A7%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B6%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%BF%E3%81%86%E8%A9%B1](http://precure-3dprinter.hatenablog.jp/entry/2018/11/22/Golang%E3%81%A7%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B6%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%BF%E3%81%86%E8%A9%B1)
--[https://qiita.com/chan-p/items/cf3e007b82cc7fce2d81](https://qiita.com/chan-p/items/cf3e007b82cc7fce2d81)
+- [https://qiita.com/chan-p/items/cf3e007b82cc7fce2d81](https://qiita.com/chan-p/items/cf3e007b82cc7fce2d81)
 
 ## MySQL
 
@@ -206,4 +206,15 @@ db.First(&users)
 ```go
 var allUsers []Users
 db.Find(&allUsers)
+```
+
+### Where条件追加
+
+`gormsample/Select.go`
+
+```go
+// Where条件指定(単純バインド)
+db.Where("name <> ?", "dummy").Find(&allUsers)
+// 以下も同じ結果となる。
+// db.Find(&allUsers, "name <> ?", "dummy")
 ```
